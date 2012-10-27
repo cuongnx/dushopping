@@ -5,18 +5,7 @@
 </h1>
 
 <table class="product_details">
-    <tr>
-        <td rowspan="3"><%= link_to image_tag(@product.img_url, alt: "Image not available", class: "product_image"), product_path(@product) %></td>
-        <td class="product_title"><%= link_to @product.title, product_path(@product)%></td>
-    </tr>
-    <tr>
-        <td><b>Price:</b> $<%= @product.price %></td>
-    </tr>
-    <tr>
-        <td class="product_description"><b>Description:</b>
-        <br/>
-        <%= strip_tags(@product.description) %> </td>
-    </tr>
+	<%= render partial: "shared/product_details", locals: {product: @product} %>
 </table>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

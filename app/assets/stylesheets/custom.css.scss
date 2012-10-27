@@ -389,7 +389,7 @@ table tr td
     height: 150px;
     width: auto;
   }
-  
+  rake
   .product_description {
     display: inline-block;
     width: 600px;
@@ -411,13 +411,12 @@ table tr td
 
 .prod_cell {
   width: 230px;
-  height: 280px;
+  height: 300px;
   padding: 10px 10px 5px 10px
 }
 
 .prod_data {
   width: 230px;
-  height: 250px;
   border-style: dotted;
   border-color: #808080;
   border-width: 2px;
@@ -448,4 +447,33 @@ table tr td
   padding-right: 6px;
   padding-top: 6px;
   vertical-align: middle;
+}
+
+.button {
+	padding: 5px 10px 5px 10px 
+}
+
+.notice, .error, .success {
+	width: 500px;
+	padding: 10px 0px 10px 25px;
+	border:2px solid;
+	border-radius:25px;
+	-moz-border-radius:25px;
+}
+
+div {
+	.notice {
+		font-size: 20px;
+		color: #0900DD;		
+	}
+	
+	.error {
+		font-size: 20px;
+		color: #F00;		
+	}
+	
+	.success {
+		font-size: 20px;
+		color: #01B317;
+	}
 }

@@ -1,0 +1,22 @@
+<h1>
+View your cart
+</h1>
+
+<table class="product_details">
+	<% sum = 0 %>
+	<% @cart.cart_items.each do |cart_item| %>
+	<% sum += cart_item.quantity*cart_item.product.price %>
+	<%= render partial: "shared/product_details", locals: {product: cart_item.product} %>
+	<tr>
+		<td></td><td><b>Quantity: </b><%= cart_item.quantity %></td>
+	</tr>
+	<tr>
+		<td></td><td><%= link_to "Remove this item from cart", cart_item, method: :delete, data: {confirm: "Are you sure?"} %></td>
+	</tr>
+	<% end %>
+	<tr id="total">
+		<td></td><td><b>Total: </b>$<%= sum %>
+		<br/>
+		<%= render partial: "shared/empty_cart_form", locals: {cart: @cart} %> </td>
+	</tr>
+</table>

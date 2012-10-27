@@ -1,0 +1,14 @@
+<tr>
+	<td rowspan="3"><%= link_to image_tag(product.img_url, alt: "Image not available", class: "product_image"), @product %></td>
+	<td class="product_title"><%= link_to product.title, product_path(product)%></td>
+</tr>
+<tr>
+	<td><b>Price:</b> $<%= product.price %>
+	<br/>
+	<%= render partial: "shared/add_to_cart_form", locals: {product: product} %></td>
+</tr>
+<tr>
+	<td class="product_description"><b>Description:</b>
+	<br/>
+	<%= strip_tags(product.description) %> </td>
+</tr>

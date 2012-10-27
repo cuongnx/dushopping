@@ -1,7 +1,10 @@
 Dushopping::Application.routes.draw do
-  root to: "static_pages#home"
 
-  resources :products
+	root to: "static_pages#home"
+
+	resources :products
+	
+	resources :carts, only: [:show, :destroy]
 
 # The priority is based upon order of creation:
 # first created -> highest priority.

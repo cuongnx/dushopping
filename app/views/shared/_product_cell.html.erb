@@ -1,0 +1,17 @@
+<td class="prod_cell">
+<div class="prod_data">
+	<div class="tb_img">
+		<%= link_to image_tag(product.img_url, alt: "Image not available", class: "prod_img"), product %>
+		<div class="prod_name">
+			<%= link_to product.title, product %>
+		</div>
+	</div>
+	<div class="prod_info">
+		<b>Price: </b>$<%= product.price %>
+		<br/>
+		<%= truncate(strip_tags(product.description), length: 130) %>
+		<br/>
+		<%= render partial: 'shared/add_to_cart_form', locals: {product: product} %>
+	</div>
+</div></td>
+
