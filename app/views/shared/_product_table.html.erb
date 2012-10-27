@@ -1,0 +1,31 @@
+<div id="product_list" >
+    <table class="product_table">
+        <% i = 1 %>
+        <% @products.each do |product| %>
+        <% if i%3 == 1 %>
+        <tr>
+            <% end%>
+
+            <td class="prod_cell">
+            <div class="prod_data">
+                <div class="tb_img">
+                    <%= link_to image_tag(product.img_url, alt: "Image not available", class: "prod_img"), product %>
+                    <div class="prod_name">
+                        <%= link_to product.title, product %>
+                    </div>
+                </div>
+                <div class="prod_info">
+                    <b>Price: </b>$<%= product.price %>
+                    <br/>
+                    <%= truncate(strip_tags(product.description), length: 130) %>
+                </div>
+            </div></td>
+
+            <% if i%3 == 0 %>
+        </tr>
+        <% end %>
+        <% i += 1 %>
+        <% end %>
+    </table>
+</div>
+<%= will_paginate @products %>
