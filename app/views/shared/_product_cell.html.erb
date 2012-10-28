@@ -10,8 +10,7 @@
 		<b>Price: </b>$<%= product.price %>
 		<br/>
 		<%= truncate(strip_tags(product.description), length: 130) %>
-		<br/>
-		<%= render partial: 'shared/add_to_cart_form', locals: {product: product} %>
 	</div>
+	<%= render partial: 'shared/add_to_cart_form', locals: {product: product} %>
 </div></td>
 

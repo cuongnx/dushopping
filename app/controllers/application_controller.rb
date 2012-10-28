@@ -1,9 +1,14 @@
 class ApplicationController < ActionController::Base
 	protect_from_forgery
 	include SessionsHelper
+
 	private
 	def current_cart
-		Cart.find(session[:cart_id])
+		if signed_in?
+			current_user.cart ||= Cart.create
+		else
+			Cart.find(session[:cart_id])
+		end
 	rescue
 		cart = Cart.create()
 		session[:cart_id] = cart.id

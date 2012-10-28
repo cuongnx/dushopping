@@ -11,6 +11,14 @@ class SessionsController < ApplicationController
 			else
 				sign_in user, false
 			end
+
+			cart = Cart.find_by_id(session[:cart_id])
+			user_cart = current_cart
+			if !cart.cart_items.empty?
+				cart.cart_items.each do |item|
+					user_cart.cart_items << item
+				end
+			end
 			redirect_back_or root_path
 		else
 			flash.now[:error] = 'Invalid email/password combination'
