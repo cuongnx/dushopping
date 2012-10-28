@@ -1,0 +1,21 @@
+<% if signed_in? %>
+<div class="sidebar">
+	<div class="welcome">
+		Hello, <%= link_to current_user.name, edit_user_path(current_user) %>
+	</div>
+</div>
+<% end %>
+
+<% if @cart %>
+<div class="sidebar">
+	<h2><%= link_to "Your cart", @cart %></h2>
+	<% if @cart.cart_items.empty? %>
+	<p style="color: red">
+		Your cart is currently empty
+	</p>
+	<% else %>
+	<%= render @cart %>
+	<%= render "shared/empty_cart_form", cart: @cart %>
+	<% end %>
+</div>
+<% end %>

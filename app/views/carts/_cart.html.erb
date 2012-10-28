@@ -1,0 +1,13 @@
+<table>
+	<% sum = 0 %>
+	<% @cart.cart_items.each do |item| %>
+	<% sum += item.product.price*item.quantity %>
+	<tr class="toprow lastrow">
+		<td><%= link_to item.product.title, item.product %> </td>
+		<td><%= item.quantity %> X $<%= item.product.price %></td>
+	</tr>
+	<% end %>
+	<tr class="toprow lastrow">
+		<td></td><td><b>Total: </b>$<%= sum %></td>
+	</tr>
+</table>

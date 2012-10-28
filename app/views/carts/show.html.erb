@@ -10,7 +10,7 @@ View your cart
 	<tr>
 		<td></td><td><b>Quantity: </b><%= cart_item.quantity %></td>
 	</tr>
-	<tr>
+	<tr class="lastrow">
 		<td></td><td><%= link_to "Remove this item from cart", cart_item, method: :delete, data: {confirm: "Are you sure?"} %></td>
 	</tr>
 	<% end %>

@@ -1,6 +1,5 @@
 class CartsController < ApplicationController
 	before_filter :check_cart_id
-	
 	def show
 		begin
 			@cart = Cart.find(params[:id])
@@ -8,9 +7,13 @@ class CartsController < ApplicationController
 			logger.error "Attempt to access invalid cart #{params[:id]}"
 			redirect_to root_path, :notice => 'Invalid cart'
 		else
-			respond_to do |format|
-				format.html # show.html.erb
-				format.xml { render :xml => @cart}
+			if @cart.cart_items.empty?
+				redirect_to root_path, notice: "Your cart is currently empty"
+			else
+				respond_to do |format|
+					format.html # show.html.erb
+					format.xml { render :xml => @cart}
+				end
 			end
 		end
 	end
@@ -22,10 +25,11 @@ class CartsController < ApplicationController
 
 		redirect_to root_path, notice: "Your cart is now empty"
 	end
-	
+
 	private
+
 	def check_cart_id
-		if params[:id] != session[:cart_id]
+		if params[:id].to_i != session[:cart_id]
 			redirect_to root_path, notice: "Invalid cart!"
 		end
 	end

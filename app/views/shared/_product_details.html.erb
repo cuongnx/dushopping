@@ -1,5 +1,5 @@
-<tr>
-	<td rowspan="3"><%= link_to image_tag(product.img_url, alt: "Image not available", class: "product_image"), @product %></td>
+<tr class="toprow">
+	<td rowspan="3"><%= link_to image_tag(product.img_url, alt: "Image not available", class: "product_image"), product %></td>
 	<td class="product_title"><%= link_to product.title, product_path(product)%></td>
 </tr>
 <tr>

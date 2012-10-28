@@ -37,9 +37,10 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 
-{ font: normal 300% 'Yanone Kaffeesatz', arial, sans-serif;
+{ font: normal 350% 'Yanone Kaffeesatz', arial, sans-serif;
   color: #444;
   margin: 0 0 15px 0;
+  text-align: center;
   padding: 5px 0 5px 0;}
 
 h2
@@ -404,19 +405,19 @@ table tr td
 }
 
 .product_table {
-  width:700px;
+  width:750px;
   height:auto;
   border-style: none;
 }
 
 .prod_cell {
-  width: 230px;
+  width: 250px;
   height: 300px;
   padding: 10px 10px 5px 10px
 }
 
 .prod_data {
-  width: 230px;
+  width: 250px;
   border-style: dotted;
   border-color: #808080;
   border-width: 2px;
@@ -455,10 +456,13 @@ table tr td
 
 .notice, .error, .success {
 	width: 500px;
-	padding: 10px 0px 10px 25px;
-	border:2px solid;
+	border:1px solid;
 	border-radius:25px;
 	-moz-border-radius:25px;
+	margin-left: 200px;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 div {
@@ -475,5 +479,34 @@ div {
 	.success {
 		font-size: 20px;
 		color: #01B317;
+	}
+	
+	.sign-form {
+		padding-left: 200px
+	}
+	
+	.welcome {
+		font: normal 200% 'Yanone Kaffeesatz', sans-serif;
+		text-align: center;
+	}
+}
+
+.toprow, #total {
+	border-top: 2px dashed #0B9CA8;
+	td {
+		padding-top: 20px;
+	}
+}
+
+.lastrow td {
+	padding-bottom: 20px;
+}
+
+#total {
+	td {
+		font-size: 15px;
+	}
+	td form {
+		padding-top: 10px;
 	}
 }

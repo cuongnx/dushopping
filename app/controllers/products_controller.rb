@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
 	before_filter :check_for_references, only: :destroy
+	before_filter :admin_user, except: [:show]
 	# GET /products
 	# GET /products.json
 	def index

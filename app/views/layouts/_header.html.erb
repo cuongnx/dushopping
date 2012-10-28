@@ -1,28 +1,39 @@
 <div id="logo">
-    <h1>
-    <a href="<%=root_path%>">DuShopping</a>
-    </h1>
-    <div class="slogan">
-        Be with you to your heart's content!
-    </div>
+	<h1>
+	<a href="<%= root_path %>">DuShopping</a>
+	</h1>
+	<div class="slogan">
+		Be with you to your heart's content!
+	</div>
 </div>
 <div id="menubar">
-    <ul id="menu">
-        <!-- put class="current" in the li tag for the selected page - to highlight which page you're on -->
-        <li>
-            <a href="#">Home</a>
-        </li>
-        <li>
-            <a href="#">Search</a>
-        </li>
-        <li>
-            <a href="#">Sign up</a>
-        </li>
-        <li>
-            <a href="#">Sign in</a>
-        </li>
-        <li>
-            <a href="#">Contact</a>
-        </li>
-    </ul>
+	<ul id="menu">
+		<!-- put class="current" in the li tag for the selected page - to highlight which page you're on -->
+		<li>
+			<a href="<%= root_path %>">Home</a>
+		</li>
+		<li>
+			<a href="#">Search</a>
+		</li>
+		<li>
+			<%= link_to "View your cart", @cart %>
+		</li>
+		<% if signed_in? %>
+		<% if current_user.admin? %>
+		<li>
+			<%= link_to "Users", users_path %>
+		</li>
+		<% end %>
+		<li>
+			<%= link_to "Sign out", signout_path, method: "delete" %>
+		</li>
+		<% else %>
+		<li>
+			<a href="<%= signup_path %>">Sign up</a>
+		</li>
+		<li>
+			<a href="<%= signin_path %>">Sign in</a>
+		</li>
+		<% end %>
+	</ul>
 </div>

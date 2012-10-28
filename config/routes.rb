@@ -3,8 +3,18 @@ Dushopping::Application.routes.draw do
 	root to: "static_pages#home"
 
 	resources :products
-	
+
+	resources :cart_items, only: [:create, :destroy]
+
 	resources :carts, only: [:show, :destroy]
+
+	resources :users
+
+	resources :sessions, only: [:new, :create, :destroy]
+
+	match "/signup", to: "users#new"
+	match "/signin", to: "sessions#new"
+	match '/signout', to: 'sessions#destroy', via: :delete
 
 # The priority is based upon order of creation:
 # first created -> highest priority.
