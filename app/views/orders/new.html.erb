@@ -1,0 +1,23 @@
+<% provide(:title, "Order") %>
+<h1>
+Order details
+</h1>
+
+<div class="order-form">
+	<%= form_for @order do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<%= f.label :name %>
+	<%= f.text_field :name, value: @user.name %>
+
+	<%= f.label :address %>
+	<%= f.text_area :address, rows: 4, cols: 40 %>
+
+	<label for="email" class="email">Email</label>
+	<input type="text" id="email" class="email" readonly="readonly" placeholder="<%= @user.email %>" />
+
+	<%= f.label :pay_type %>
+	<%= f.select :pay_type, Order::PAYMENT_TYPES %>
+	<br/>
+	<%= f.submit "Confirm order", data: {confirm: "Are you sure?"}, class: "button" %>
+	<% end %>
+</div>

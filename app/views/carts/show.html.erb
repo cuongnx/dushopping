@@ -1,3 +1,4 @@
+<% provide(:title, "View cart") %>
 <h1>
 View your cart
 </h1>
@@ -17,6 +18,7 @@ View your cart
 	<tr id="total">
 		<td></td><td><b>Total: </b>$<%= sum %>
 		<br/>
-		<%= render partial: "shared/empty_cart_form", locals: {cart: @cart} %> </td>
+		<%= render "shared/order_cart_form" %>
+		<%= render partial: "shared/empty_cart_form", locals: {cart: @cart} %></td>
 	</tr>
 </table>

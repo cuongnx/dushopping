@@ -491,6 +491,17 @@ div {
 		font: normal 200% 'Yanone Kaffeesatz', sans-serif;
 		text-align: center;
 	}
+	
+	.order-form {
+		padding-left: 300px;
+		input, textarea {			
+			width: 400px;
+		}
+		
+		input.button {
+			width: 100px;
+		}
+	}
 }
 
 .toprow, #total {

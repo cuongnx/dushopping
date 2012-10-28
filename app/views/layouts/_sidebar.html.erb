@@ -15,6 +15,7 @@
 	</p>
 	<% else %>
 	<%= render @cart %>
+	<%= render "shared/order_cart_form" %>
 	<%= render "shared/empty_cart_form", cart: @cart %>
 	<% end %>
 </div>
