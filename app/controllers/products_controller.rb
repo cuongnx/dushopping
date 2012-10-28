@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-	before_filter :check_for_references, only: :destroy
 	before_filter :admin_user, except: [:show]
+	before_filter :check_for_references, only: [:destroy]
 	# GET /products
 	# GET /products.json
 	def index
@@ -74,12 +74,24 @@ class ProductsController < ApplicationController
 	# DELETE /products/1
 	# DELETE /products/1.json
 	def destroy
-		@product = Product.find(params[:id])
-		@product.destroy
+		product = Product.find_by_id(params[:id])
+		if product
+			product.destroy
+			flash[:success] = "Product deleted"
+			redirect_to products_path
+		else
+			flash[:error] = "Product not exist"
+			redirect_to products_path
+		end
+	end
 
-		respond_to do |format|
-			format.html { redirect_to products_url }
-			format.json { head :no_content }
+	private
+
+	def check_for_references
+		product = Product.find_by_id(params[:id])
+		if !product.cart_items.empty?
+			flash[:error] = "Cannot delete products still referenced by carts"
+			redirect_to products_path
 		end
 	end
 end

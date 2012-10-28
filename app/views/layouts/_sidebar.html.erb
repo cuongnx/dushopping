@@ -1,14 +1,21 @@
 <% if signed_in? %>
 <div class="sidebar">
 	<div class="welcome">
-		Hello, <%= link_to current_user.name, edit_user_path(current_user) %>
+		<b>Hello, <%= link_to current_user.name, edit_user_path(current_user) %></b>
 	</div>
 </div>
 <% end %>
 
+<div class="sidebar">
+	<b>Quick search</b>
+	<div class="search-form">
+		<%= render "shared/quick_search_form" %>
+	</div>
+</div>
+
 <% if @cart %>
 <div class="sidebar">
-	<h2><%= link_to "Your cart", @cart %></h2>
+	<h2><%= link_to "Your cart", @cart, style: "font-weight: bold" %></h2>
 	<% if @cart.cart_items.empty? %>
 	<p style="color: red">
 		Your cart is currently empty

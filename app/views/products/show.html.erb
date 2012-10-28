@@ -6,7 +6,13 @@
 
 <table class="product_details">
 	<%= render partial: "shared/product_details", locals: {product: @product} %>
+	<tr>
+		<td></td>
+		<td> <% if current_user.admin? %>
+		<%= link_to 'Edit', edit_product_path(@product) %> |
+		<%= link_to 'Destroy', @product, data: {confirm: 'Are you sure?'}, method: :delete %> |
+		<%= link_to 'Back', products_path %>
+		<% end %> </td>
+	</tr>
 </table>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>

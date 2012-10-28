@@ -25,7 +25,8 @@ class OrdersController < ApplicationController
 		@cart = current_cart
 
 		if !current_user?(@cart.user)
-			redirect_to root_path, error: "Invalid cart"
+			flash[:error] = "Invalid cart"
+			redirect_to root_path
 		end
 	end
 end

@@ -1,0 +1,31 @@
+<%= form_for :static_pages, url: search_path, html: {method: :get} do |f| %>
+<table>
+	<tr>
+		<td>
+			<%= f.label :query, "Search phrase" %>
+			<%= f.text_field :query %>
+		</td>
+		<td>			
+			<%= f.label :orderby, "Order title by" %>
+			<%= f.select :orderby, [['ASC', 'ASC'], ['DESC', 'DESC']] %>
+		</td>
+	</tr>
+
+	<tr>
+		<td>Search in
+			<%= f.check_box :title %>
+			<%= f.label :title, "Title", style: "display: inline" %>
+			<%= f.check_box :description %>
+			<%= f.label :description, "Description", style: "display: inline" %>
+		</td>
+
+		<td>
+			
+		</td>
+	</tr>
+
+	<tr>
+		<td><%= f.submit "Search", class: "button" %></td><td></td>
+	</tr>
+</table>
+<% end %>

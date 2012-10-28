@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+	before_filter :retrieve_cart
 	protect_from_forgery
 	include SessionsHelper
 
@@ -19,5 +20,9 @@ class ApplicationController < ActionController::Base
 		unless current_user && current_user.admin?
 			redirect_to(root_path, notice: "Permission denied")
 		end
+	end
+	
+	def retrieve_cart
+		@cart = current_cart
 	end
 end

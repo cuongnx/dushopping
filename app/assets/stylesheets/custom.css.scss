@@ -115,12 +115,12 @@ ol li
   margin: 20px auto;}
 
 #header
-{ width: 1200px;
-  height: 145px;}
+{ width: 1250px;
+  height: 100px;}
 
 #logo
 { width: 1100px;
-  height: 150px;
+  height: 100px;
   background: transparent;
   padding: 0 0 0px 10px;}
 
@@ -201,7 +201,7 @@ ul#menu li a:hover
 { color: #F14E23;}
 
 #site_content
-{ width: 1200px;
+{ width: 1250px;
   overflow: hidden;
   margin: 0 auto 0 auto;
   padding: 0;
@@ -210,12 +210,12 @@ ul#menu li a:hover
 
 #sidebar_container
 { float: right;
-  width: 250px;
+  width: 350px;
   margin: 25px 0;}
 
 .sidebar
 { float: right;
-  width: 200px;
+  width: 250px;
   margin: 0 24px 27px 0;
   background: #FBFBFB;
   border: 1px solid #eee;
@@ -458,7 +458,7 @@ table tr td
 
 .notice, .error, .success {
 	width: 500px;
-	border:1px solid;
+	border: 1px solid;
 	border-radius:25px;
 	-moz-border-radius:25px;
 	margin-left: 200px;
@@ -488,7 +488,7 @@ div {
 	}
 	
 	.welcome {
-		font: normal 200% 'Yanone Kaffeesatz', sans-serif;
+		font: normal 170% arial, sans-serif;
 		text-align: center;
 	}
 	
@@ -521,5 +521,25 @@ div {
 	}
 	td form {
 		padding-top: 10px;
+	}
+}
+
+.search-form {
+	fieldset {
+		background: #efe;
+		border: 1px outset;
+		padding-left: 20px;
+	}
+	
+	legend {
+		width: 150px;
+		color: #FFF;
+		background: #00A7C7;
+		padding-left: 15px;
+		font-size: 16px;
+		margin-left: 20px;
+		margin-bottom: 0px;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
 	}
 }
